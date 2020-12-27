@@ -13,7 +13,9 @@
 
 Route::get('/', 'UsersController@search');
 
-Auth::routes();
+Auth::routes([
+    'register' => false
+]);
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('password/change', 'Auth\ChangePasswordController@show')->name('password.change');
